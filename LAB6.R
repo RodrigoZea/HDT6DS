@@ -20,8 +20,9 @@ twitter_token <- create_token(
   access_secret = app_details$access_token_secret)
 
 ## search for 500 tweets using the #rstats hashtag
-traficogt <- search_tweets(q = "#traficogt",
-                               n = 500,
+traficogt <- search_tweets(q = "@amilcarmontejo AND #traficogt",
+                               n = 1000,
                                include_rts = FALSE)
+
 # view the first 3 rows of the dataframe
-head(traficogt$text, n = 3)
+head(traficogt$text, n = 100)
