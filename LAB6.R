@@ -9,8 +9,6 @@ library(tidytext)
 library("rjson")
 
 app_details <- fromJSON(file = "api_key.json")
-print(app_details)
-
 appname <- "hdt6-SC"
 
 # create token named "twitter_token"
@@ -20,3 +18,10 @@ twitter_token <- create_token(
   consumer_secret = app_details$consumer_secret,
   access_token = app_details$access_token,
   access_secret = app_details$access_token_secret)
+
+## search for 500 tweets using the #rstats hashtag
+traficogt <- search_tweets(q = "#traficogt",
+                               n = 500,
+                               include_rts = FALSE)
+# view the first 3 rows of the dataframe
+head(traficogt$text, n = 3)
